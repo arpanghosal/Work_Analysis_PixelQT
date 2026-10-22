@@ -1,0 +1,772 @@
+
+ *------------------------------------------------------------------------------------* 
+ |                                                                                    | 
+ |  *------------------------------------------------------------------------------*  | 
+ |  |                                                                              |  | 
+ |  |                                                                              |  | 
+ |  |   PPP   Y   Y  TTTTT  H   H  III    A      Welcome to the Lund Monte Carlo!  |  | 
+ |  |   P  P   Y Y     T    H   H   I    A A     This is PYTHIA version 8.307      |  | 
+ |  |   PPP     Y      T    HHHHH   I   AAAAA    Last date of change: 25 Feb 2022  |  | 
+ |  |   P       Y      T    H   H   I   A   A                                      |  | 
+ |  |   P       Y      T    H   H  III  A   A    Now is 24 Jun 2022 at 04:56:05    |  | 
+ |  |                                                                              |  | 
+ |  |   Program documentation and an archive of historic versions is found on:     |  | 
+ |  |                                                                              |  | 
+ |  |                               https://pythia.org/                            |  | 
+ |  |                                                                              |  | 
+ |  |   PYTHIA is authored by a collaboration consisting of:                       |  | 
+ |  |                                                                              |  | 
+ |  |   Christian Bierlich, Nishita Desai, Leif Gellersen, Ilkka Helenius, Philip  |  | 
+ |  |   Ilten, Leif Lönnblad, Stephen Mrenna, Stefan Prestel, Christian Preuss,    |  | 
+ |  |   Torbjörn Sjöstrand, Peter Skands, Marius Utheim and Rob Verheyen.          |  | 
+ |  |                                                                              |  | 
+ |  |   The complete list of authors, including contact information and            |  | 
+ |  |   affiliations, can be found on https://pythia.org/.                         |  | 
+ |  |   Problems or bugs should be reported on email at authors@pythia.org.        |  | 
+ |  |                                                                              |  | 
+ |  |   The main program reference is 'An Introduction to PYTHIA 8.2',             |  | 
+ |  |   T. Sjöstrand et al, Comput. Phys. Commun. 191 (2015) 159                   |  | 
+ |  |   [arXiv:1410.3012 [hep-ph]]                                                 |  | 
+ |  |                                                                              |  | 
+ |  |   The main physics reference is the 'PYTHIA 6.4 Physics and Manual',         |  | 
+ |  |   T. Sjöstrand, S. Mrenna and P. Skands, JHEP05 (2006) 026 [hep-ph/0603175]  |  | 
+ |  |                                                                              |  | 
+ |  |   PYTHIA is released under the GNU General Public Licence version 2 or later.|  | 
+ |  |   Please respect the MCnet Guidelines for Event Generator Authors and Users. |  | 
+ |  |                                                                              |  | 
+ |  |   Disclaimer: this program comes without any guarantees.                     |  | 
+ |  |   Beware of errors and use common sense when interpreting results.           |  | 
+ |  |                                                                              |  | 
+ |  |   Copyright (C) 2022 Torbjörn Sjöstrand                                      |  | 
+ |  |                                                                              |  | 
+ |  |                                                                              |  | 
+ |  *------------------------------------------------------------------------------*  | 
+ |                                                                                    | 
+ *------------------------------------------------------------------------------------* 
+
+
+ *------------------ MEPS Merging Initialization  ------------------*
+ |                                                                  |
+ | CKKW-L merge                                                     |
+ |                           pp>e+ve  with up to  2 additional jets |
+ | Merging scale is defined in kT, with value ktMS = 30.000 GeV
+ |                                                                  |
+ *-------------- END MEPS Merging Initialization  ------------------*
+
+ *-----------------------  SusyLesHouches SUSY/BSM Interface  ------------------------*
+ | Last Change 12 Apr 2017 - P. Skands
+ | Parsing: w+_production_lhc_0.lhe
+ | (SLHA::readFile) line 134 - storing non-SLHA(2) block: mgyukawa
+ | (SLHA::readFile) line 139 - storing non-SLHA(2) block: mgckm
+ *------------------------------------------------------------------------------------*
+ PYTHIA Info from SLHAinterface::initSLHA: No MODSEL found, keeping internal SUSY switched off  
+ PYTHIA Warning in SLHAinterface::initSLHA: ignoring MASS entries for id = {5,15,23,24} (m0 < SLHA:minMassSM)
+ PYTHIA Warning in SLHAinterface::initSLHA: adding off shell DECAY mode 25 -> 23 23
+ PYTHIA Warning in SLHAinterface::initSLHA: adding off shell DECAY mode 25 -> 24 -24
+ PYTHIA Info from SLHAinterface::initSLHA: importing DECAY tables for id = {25}
+ PYTHIA Warning in SLHAinterface::initSLHA: ignoring DECAY tables for id = {23,24} (m0 < SLHA:minMassSM)
+ PYTHIA Warning in SLHAinterface::initSLHA: ignoring empty DECAY tables for id = {6} (total width provided but no Branching Ratios)
+
+ *-------  PYTHIA Process Initialization  --------------------------*
+ |                                                                  |
+ | We collide p+ with p+ at a CM energy of 7.000e+03 GeV            |
+ |                                                                  |
+ |------------------------------------------------------------------|
+ |                                                    |             |
+ | Subprocess                                    Code |   Estimated |
+ |                                                    |    max (mb) |
+ |                                                    |             |
+ |------------------------------------------------------------------|
+ |                                                    |             |
+ | Les Houches User Process(es)                  9999 |   4.923e-06 |
+ |                                                                  |
+ *-------  End PYTHIA Process Initialization -----------------------*
+
+ *-------  PYTHIA Flag + Mode + Parm + Word + FVec + MVec + PVec + WVec Settings (changes only)  ------------------* 
+ |                                                                                                                 | 
+ | Name                                          |                      Now |      Default         Min         Max | 
+ |                                               |                          |                                      | 
+ | BeamRemnants:halfScaleForKT                   |                  1.00000 |      1.50000         0.0             | 
+ | BeamRemnants:primordialKThard                 |                  2.00000 |      1.80000         0.0             | 
+ | BeamRemnants:primordialKTsoft                 |                  0.50000 |      0.90000         0.0             | 
+ | Beams:frameType                               |                        4 |            1           1           5 | 
+ | Beams:LHEF                                    |  w+_production_lhc_0.lhe |         void                         | 
+ | ColourReconnection:range                      |                  1.50000 |      1.80000         0.0    10.00000 | 
+ | Diffraction:largeMassSuppress                 |                  2.00000 |      4.00000         0.0             | 
+ | HadronLevel:all                               |                      off |           on                         | 
+ | Init:showChangedParticleData                  |                      off |           on                         | 
+ | Main:numberOfEvents                           |                      100 |         1000           0             | 
+ | Main:subrun                                   |                        0 |         -999           0             | 
+ | Merging:doKTMerging                           |                       on |          off                         | 
+ | Merging:ktType                                |                        2 |            1           1           3 | 
+ | Merging:nJetMax                               |                        2 |            0           0             | 
+ | Merging:Process                               |                  pp>e+ve |         void                         | 
+ | Merging:TMS                                   |                 30.00000 |          0.0                         | 
+ | MultipartonInteractions:alphaSvalue           |                  0.13500 |      0.13000   0.0600000     0.25000 | 
+ | MultipartonInteractions:ecmPow                |                  0.19000 |      0.21500         0.0     0.50000 | 
+ | MultipartonInteractions:ecmRef                |                 1800.000 |     7000.000     1.00000             | 
+ | MultipartonInteractions:expPow                |                  2.00000 |      1.85000     0.40000    10.00000 | 
+ | MultipartonInteractions:pT0Ref                |                  2.08500 |      2.28000     0.50000    10.00000 | 
+ | Next:numberShowEvent                          |                        0 |            1           0             | 
+ | Next:numberShowInfo                           |                        0 |            1           0             | 
+ | PartonLevel:MPI                               |                      off |           on                         | 
+ | PDF:pSet                                      |                        8 |           13                         | 
+ | SigmaProcess:alphaSvalue                      |                  0.13500 |      0.13000   0.0600000     0.25000 | 
+ | SpaceShower:alphaSvalue                       |                  0.13700 |      0.13650   0.0600000     0.25000 | 
+ | SpaceShower:ecmRef                            |                 1800.000 |     7000.000     1.00000             | 
+ | SpaceShower:rapidityOrder                     |                      off |           on                         | 
+ | StringFlav:etaSup                             |                  0.63000 |      0.60000         0.0     1.00000 | 
+ | StringFlav:mesonBvector                       |                  3.00000 |      2.20000         0.0     3.00000 | 
+ | StringFlav:mesonCvector                       |                  1.06000 |      0.88000         0.0     3.00000 | 
+ | StringFlav:mesonSvector                       |                  0.72500 |      0.55000         0.0     3.00000 | 
+ | StringFlav:mesonUDvector                      |                  0.62000 |      0.50000         0.0     3.00000 | 
+ | StringFlav:popcornSpair                       |                  0.50000 |      0.90000         0.0     1.00000 | 
+ | StringFlav:probQQ1toQQ0                       |                0.0270000 |    0.0275000         0.0     1.00000 | 
+ | StringFlav:probQQtoQ                          |                0.0900000 |    0.0810000         0.0     1.00000 | 
+ | StringFlav:probSQtoQQ                         |                  1.00000 |      0.91500         0.0     1.00000 | 
+ | StringFlav:probStoUD                          |                  0.19000 |      0.21700         0.0     1.00000 | 
+ | StringPT:sigma                                |                  0.30400 |      0.33500         0.0     1.00000 | 
+ | StringZ:aExtraDiquark                         |                  0.50000 |      0.97000         0.0     2.00000 | 
+ | StringZ:aLund                                 |                  0.30000 |      0.68000         0.0     2.00000 | 
+ | StringZ:bLund                                 |                  0.80000 |      0.98000     0.20000     2.00000 | 
+ | StringZ:rFactB                                |                  0.67000 |      0.85500         0.0     2.00000 | 
+ | StringZ:rFactC                                |                  1.00000 |      1.32000         0.0     2.00000 | 
+ | TimeShower:alphaSvalue                        |                  0.13830 |      0.13650   0.0600000     0.25000 | 
+ | TimeShower:pTmin                              |                  0.40000 |      0.50000     0.10000     2.00000 | 
+ | TimeShower:pTminChgQ                          |                  0.40000 |      0.50000     0.10000     2.00000 | 
+ | Tune:ee                                       |                        3 |            7          -1           7 | 
+ | Tune:pp                                       |                        5 |           14          -1          34 | 
+ | UncertaintyBands:doVariations                 |                       on |          off                         | 
+ | UncertaintyBands:List                         |                          | alphaShi fsr:muRfac=0.5 isr:muRfac=0.5 | 
+ |                                               |                          |   alphaSlo fsr:muRfac=2.0 isr:muRfac=2.0 | 
+ |                                               |                          |   hardHi fsr:cNS=2.0 isr:cNS=2.0     | 
+ |                                               |                          |  hardLo fsr:cNS=-2.0 isr:cNS=-2.0    | 
+ |                                                                                                                 | 
+ *-------  End PYTHIA Flag + Mode + Parm + Word + FVec + MVec + PVec + WVec Settings  -----------------------------* 
+
+ --------  LHA event information and listing  ---------------------------------------------------------------------- 
+
+    process =        1    weight =   4.9226e+01     scale =   8.0400e+01 (GeV) 
+                        alpha_em =   7.5468e-03    alpha_strong =   1.2978e-01
+
+    Participating Particles 
+    no        id stat     mothers     colours      p_x        p_y        p_z         e          m        tau    spin 
+     1        -1   -1     0     0     0   501      0.000      0.000    399.197    399.197      0.000   0.000   1.000
+     2         2   -1     0     0   501     0      0.000      0.000     -3.944      3.944      0.000   0.000  -1.000
+     3        24    2     1     2     0     0      0.000      0.000    395.254    403.141     79.354   0.000   0.000
+     4       -11    1     3     3     0     0    -30.323      9.950    317.391    318.992      0.000   0.000   1.000
+     5        12    1     3     3     0     0     30.323     -9.950     77.863     84.149      0.000   0.000  -1.000
+
+ --------  End LHA event information and listing  ------------------------------------------------------------------ 
+
+ --------  PYTHIA Event Listing  (hard process)  -----------------------------------------------------------------------------------
+ 
+    no         id  name            status     mothers   daughters     colours      p_x        p_y        p_z         e          m 
+     0         90  (system)           -11     0     0     0     0     0     0      0.000      0.000      0.000   7000.000   7000.000
+     1       2212  (p+)               -12     0     0     3     0     0     0      0.000      0.000   3500.000   3500.000      0.938
+     2       2212  (p+)               -12     0     0     4     0     0     0      0.000      0.000  -3500.000   3500.000      0.938
+     3         -1  (dbar)             -21     1     0     5     0     0   501      0.000      0.000    399.197    399.197      0.000
+     4          2  (u)                -21     2     0     5     0   501     0      0.000      0.000     -3.944      3.944      0.000
+     5         24  (W+)               -22     3     4     6     7     0     0      0.000      0.000    395.254    403.141     79.354
+     6        -11  e+                  23     5     0     0     0     0     0    -30.323      9.950    317.391    318.992      0.001
+     7         12  nu_e                23     5     0     0     0     0     0     30.323     -9.950     77.863     84.149      0.000
+                                   Charge sum:  1.000           Momentum sum:      0.000      0.000    395.254    403.141     79.354
+
+ --------  End PYTHIA Event Listing  -----------------------------------------------------------------------------------------------
+
+ *-------  PYTHIA Event and Cross Section Statistics  -------------------------------------------------------------*
+ |                                                                                                                 |
+ | Subprocess                                    Code |            Number of events       |      sigma +- delta    |
+ |                                                    |       Tried   Selected   Accepted |     (estimated) (mb)   |
+ |                                                    |                                   |                        |
+ |-----------------------------------------------------------------------------------------------------------------|
+ |                                                    |                                   |                        |
+ | Les Houches User Process(es)                  9999 |         100        100         91 |   4.480e-06  1.409e-07 |
+ |    ... whereof user classification code          1 |         100        100         91 |                        | 
+ |                                                    |                                   |                        |
+ | sum                                                |         100        100         91 |   4.480e-06  1.409e-07 |
+ |                                                                                                                 |
+ *-------  End PYTHIA Event and Cross Section Statistics ----------------------------------------------------------*
+
+ *-------  PYTHIA Error and Warning Messages Statistics  ----------------------------------------------------------* 
+ |                                                                                                                 | 
+ |  times   message                                                                                                | 
+ |                                                                                                                 | 
+ |      1   Info from SLHAinterface::initSLHA: No MODSEL found, keeping internal SUSY switched off                 | 
+ |      1   Info from SLHAinterface::initSLHA: importing DECAY tables                                              | 
+ |      2   Warning in SLHAinterface::initSLHA: adding off shell DECAY mode                                        | 
+ |      1   Warning in SLHAinterface::initSLHA: ignoring DECAY tables                                              | 
+ |      1   Warning in SLHAinterface::initSLHA: ignoring MASS entries                                              | 
+ |      1   Warning in SLHAinterface::initSLHA: ignoring empty DECAY tables                                        | 
+ |                                                                                                                 | 
+ *-------  End PYTHIA Error and Warning Messages Statistics  ------------------------------------------------------* 
+
+
+  2022-06-24 04:56       event weights, current subrun
+
+        1.00*10^ 2                                          X                                                           
+        0.96*10^ 2                                          X                                                           
+        0.92*10^ 2                                          X                                                           
+        0.88*10^ 2                                          X                                                           
+        0.84*10^ 2                                          X                                                           
+        0.80*10^ 2                                          X                                                           
+        0.76*10^ 2                                          X                                                           
+        0.72*10^ 2                                          X                                                           
+        0.68*10^ 2                                          X                                                           
+        0.64*10^ 2                                          X                                                           
+        0.60*10^ 2                                          X                                                           
+        0.56*10^ 2                                          X                                                           
+        0.52*10^ 2                                          X                                                           
+        0.48*10^ 2                                          X                                                           
+        0.44*10^ 2                                          X                                                           
+        0.40*10^ 2                                          X                                                           
+        0.36*10^ 2                                          X                                                           
+        0.32*10^ 2                                          X                                                           
+        0.28*10^ 2                                          X                                                           
+        0.24*10^ 2                                          X                                                           
+        0.20*10^ 2                                          X                                                           
+        0.16*10^ 2                                          X                                                           
+        0.12*10^ 2                                          X                                                           
+        0.08*10^ 2                                          X                                                           
+        0.04*10^ 2                                          X                                                           
+
+          Contents                                                                                                      
+            *10^ 2  0000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000
+            *10^ 1  0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+            *10^ 0  0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+            *10^-1  0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+          Low edge                                                                                                      
+            *10^ 0  0000000000000000000000000000000000000000111111111111111111111111111111111111111122222222222222222222
+            *10^-1  0000111122223333444455556666777788889999000011112222333344445555666677778888999900001111222233334444
+            *10^-2  0358035803580358035803580358035803580358035803580358035803580358035803580358035803580358035803580358
+
+   Entries  =         100    Mean =  1.0125e+00    Underflow =  0.0000e+00    Low edge  =  0.0000e+00
+   All chan =  1.0000e+02    Rms  =  0.0000e+00    Overflow  =  0.0000e+00    High edge =  2.5000e+00
+
+
+  2022-06-24 04:56       pT of W, current subrun
+
+        3.75*10^ 2   6                                                                                                  
+        3.60*10^ 2   X                                                                                                  
+        3.45*10^ 2   XX                                                                                                 
+        3.30*10^ 2   XX 3                                                                                               
+        3.15*10^ 2   XX X                                                                                               
+        3.00*10^ 2   XX X                                                                                               
+        2.85*10^ 2   XX X                                                                                               
+        2.70*10^ 2   XX X                                                                                               
+        2.55*10^ 2   XX X                                                                                               
+        2.40*10^ 2   XX X                                                                                               
+        2.25*10^ 2   XX X                                                                                               
+        2.10*10^ 2  1XX X1 1                                                                                            
+        1.95*10^ 2  XXX XX X                                                                                            
+        1.80*10^ 2  XXX XX X                                                                                            
+        1.65*10^ 2  XXX XX X                                                                                            
+        1.50*10^ 2  XXX8XX X                                                                                            
+        1.35*10^ 2  XXXXXX X2                                                                                           
+        1.20*10^ 2  XXXXXX XX                                                                                           
+        1.05*10^ 2  XXXXXX XX                                                                                           
+        0.90*10^ 2  XXXXXX XX                                                                                           
+        0.75*10^ 2  XXXXXX9XX9 9                                                                                        
+        0.60*10^ 2  XXXXXXXXXX3X      3                                                                                 
+        0.45*10^ 2  XXXXXXXXXXXX      X                                                                                 
+        0.30*10^ 2  XXXXXXXXXXXX 6    X                                                                                 
+        0.15*10^ 2  XXXXXXXXXXXX X    X                                                                                 
+
+          Contents                                                                                                      
+            *10^ 2  1331310110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+            *10^ 1  9644297927470200004000000000000000000000000000000000000000000000000000000000000000000000000000000000
+            *10^ 0  6947063633930400009000000000000000000000000000000000000000000000000000000000000000000000000000000000
+            *10^-1  9267098918280600002000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+          Low edge                                                                                                      
+            *10^ 2  0000000000000000000000000000000000000000000000000011111111111111111111111111111111111111111111111111
+            *10^ 1  0000011111222223333344444555556666677777888889999900000111112222233333444445555566666777778888899999
+            *10^ 0  0246802468024680246802468024680246802468024680246802468024680246802468024680246802468024680246802468
+
+   Entries  =          91    Mean =  9.7033e+00    Underflow =  0.0000e+00    Low edge  =  0.0000e+00
+   All chan =  2.2398e+03    Rms  =  7.4206e+00    Overflow  =  0.0000e+00    High edge =  2.0000e+02
+ PYTHIA Info from Pythia::init: be aware that successive calls to init() do not clear previous settings.  
+
+ *------------------ MEPS Merging Initialization  ------------------*
+ |                                                                  |
+ | CKKW-L merge                                                     |
+ |                           pp>e+ve  with up to  2 additional jets |
+ | Merging scale is defined in kT, with value ktMS = 3.0000e+01 GeV
+ |                                                                  |
+ *-------------- END MEPS Merging Initialization  ------------------*
+
+ *-----------------------  SusyLesHouches SUSY/BSM Interface  ------------------------*
+ | Last Change 12 Apr 2017 - P. Skands
+ | Parsing: w+_production_lhc_1.lhe
+ | (SLHA::readFile) line 134 - storing non-SLHA(2) block: mgyukawa
+ | (SLHA::readFile) line 139 - storing non-SLHA(2) block: mgckm
+ *------------------------------------------------------------------------------------*
+ PYTHIA Warning in SLHAinterface::initSLHA: ignoring MASS entries for id = {5,15,23,24} (m0 < SLHA:minMassSM)
+ PYTHIA Warning in SLHAinterface::initSLHA: adding off shell DECAY mode 25 -> 23 23
+ PYTHIA Warning in SLHAinterface::initSLHA: adding off shell DECAY mode 25 -> 24 -24
+ PYTHIA Info from SLHAinterface::initSLHA: importing DECAY tables for id = {25}
+ PYTHIA Warning in SLHAinterface::initSLHA: ignoring DECAY tables for id = {23,24} (m0 < SLHA:minMassSM)
+ PYTHIA Warning in SLHAinterface::initSLHA: ignoring empty DECAY tables for id = {6} (total width provided but no Branching Ratios)
+
+ *-------  PYTHIA Process Initialization  --------------------------*
+ |                                                                  |
+ | We collide p+ with p+ at a CM energy of 7.000e+03 GeV            |
+ |                                                                  |
+ |------------------------------------------------------------------|
+ |                                                    |             |
+ | Subprocess                                    Code |   Estimated |
+ |                                                    |    max (mb) |
+ |                                                    |             |
+ |------------------------------------------------------------------|
+ |                                                    |             |
+ | Les Houches User Process(es)                  9999 |   4.515e-07 |
+ |                                                                  |
+ *-------  End PYTHIA Process Initialization -----------------------*
+
+ *-------  PYTHIA Flag + Mode + Parm + Word + FVec + MVec + PVec + WVec Settings (changes only)  ------------------* 
+ |                                                                                                                 | 
+ | Name                                          |                      Now |      Default         Min         Max | 
+ |                                               |                          |                                      | 
+ | BeamRemnants:halfScaleForKT                   |                  1.00000 |      1.50000         0.0             | 
+ | BeamRemnants:primordialKThard                 |                  2.00000 |      1.80000         0.0             | 
+ | BeamRemnants:primordialKTsoft                 |                  0.50000 |      0.90000         0.0             | 
+ | Beams:frameType                               |                        4 |            1           1           5 | 
+ | Beams:LHEF                                    |  w+_production_lhc_1.lhe |         void                         | 
+ | ColourReconnection:range                      |                  1.50000 |      1.80000         0.0    10.00000 | 
+ | Diffraction:largeMassSuppress                 |                  2.00000 |      4.00000         0.0             | 
+ | HadronLevel:all                               |                      off |           on                         | 
+ | Init:showChangedParticleData                  |                      off |           on                         | 
+ | Main:numberOfEvents                           |                      100 |         1000           0             | 
+ | Main:subrun                                   |                        1 |         -999           0             | 
+ | Merging:doKTMerging                           |                       on |          off                         | 
+ | Merging:ktType                                |                        2 |            1           1           3 | 
+ | Merging:nJetMax                               |                        2 |            0           0             | 
+ | Merging:Process                               |                  pp>e+ve |         void                         | 
+ | Merging:TMS                                   |                 30.00000 |          0.0                         | 
+ | MultipartonInteractions:alphaSvalue           |                  0.13500 |      0.13000   0.0600000     0.25000 | 
+ | MultipartonInteractions:ecmPow                |                  0.19000 |      0.21500         0.0     0.50000 | 
+ | MultipartonInteractions:ecmRef                |                 1800.000 |     7000.000     1.00000             | 
+ | MultipartonInteractions:expPow                |                  2.00000 |      1.85000     0.40000    10.00000 | 
+ | MultipartonInteractions:pT0Ref                |                  2.08500 |      2.28000     0.50000    10.00000 | 
+ | Next:numberShowEvent                          |                        0 |            1           0             | 
+ | Next:numberShowInfo                           |                        0 |            1           0             | 
+ | PartonLevel:MPI                               |                      off |           on                         | 
+ | PDF:pSet                                      |                        8 |           13                         | 
+ | SigmaProcess:alphaSvalue                      |                  0.13500 |      0.13000   0.0600000     0.25000 | 
+ | SpaceShower:alphaSvalue                       |                  0.13700 |      0.13650   0.0600000     0.25000 | 
+ | SpaceShower:ecmRef                            |                 1800.000 |     7000.000     1.00000             | 
+ | SpaceShower:rapidityOrder                     |                      off |           on                         | 
+ | StringFlav:etaSup                             |                  0.63000 |      0.60000         0.0     1.00000 | 
+ | StringFlav:mesonBvector                       |                  3.00000 |      2.20000         0.0     3.00000 | 
+ | StringFlav:mesonCvector                       |                  1.06000 |      0.88000         0.0     3.00000 | 
+ | StringFlav:mesonSvector                       |                  0.72500 |      0.55000         0.0     3.00000 | 
+ | StringFlav:mesonUDvector                      |                  0.62000 |      0.50000         0.0     3.00000 | 
+ | StringFlav:popcornSpair                       |                  0.50000 |      0.90000         0.0     1.00000 | 
+ | StringFlav:probQQ1toQQ0                       |                0.0270000 |    0.0275000         0.0     1.00000 | 
+ | StringFlav:probQQtoQ                          |                0.0900000 |    0.0810000         0.0     1.00000 | 
+ | StringFlav:probSQtoQQ                         |                  1.00000 |      0.91500         0.0     1.00000 | 
+ | StringFlav:probStoUD                          |                  0.19000 |      0.21700         0.0     1.00000 | 
+ | StringPT:sigma                                |                  0.30400 |      0.33500         0.0     1.00000 | 
+ | StringZ:aExtraDiquark                         |                  0.50000 |      0.97000         0.0     2.00000 | 
+ | StringZ:aLund                                 |                  0.30000 |      0.68000         0.0     2.00000 | 
+ | StringZ:bLund                                 |                  0.80000 |      0.98000     0.20000     2.00000 | 
+ | StringZ:rFactB                                |                  0.67000 |      0.85500         0.0     2.00000 | 
+ | StringZ:rFactC                                |                  1.00000 |      1.32000         0.0     2.00000 | 
+ | TimeShower:alphaSvalue                        |                  0.13830 |      0.13650   0.0600000     0.25000 | 
+ | TimeShower:pTmin                              |                  0.40000 |      0.50000     0.10000     2.00000 | 
+ | TimeShower:pTminChgQ                          |                  0.40000 |      0.50000     0.10000     2.00000 | 
+ | Tune:ee                                       |                        3 |            7          -1           7 | 
+ | Tune:pp                                       |                        5 |           14          -1          34 | 
+ | UncertaintyBands:doVariations                 |                       on |          off                         | 
+ | UncertaintyBands:List                         |                          | alphaShi fsr:muRfac=0.5 isr:muRfac=0.5 | 
+ |                                               |                          |   alphaSlo fsr:muRfac=2.0 isr:muRfac=2.0 | 
+ |                                               |                          |   hardHi fsr:cNS=2.0 isr:cNS=2.0     | 
+ |                                               |                          |  hardLo fsr:cNS=-2.0 isr:cNS=-2.0    | 
+ |                                                                                                                 | 
+ *-------  End PYTHIA Flag + Mode + Parm + Word + FVec + MVec + PVec + WVec Settings  -----------------------------* 
+
+ *-------  PYTHIA Event and Cross Section Statistics  -------------------------------------------------------------*
+ |                                                                                                                 |
+ | Subprocess                                    Code |            Number of events       |      sigma +- delta    |
+ |                                                    |       Tried   Selected   Accepted |     (estimated) (mb)   |
+ |                                                    |                                   |                        |
+ |-----------------------------------------------------------------------------------------------------------------|
+ |                                                    |                                   |                        |
+ | Les Houches User Process(es)                  9999 |         100        100         73 |   3.785e-07  1.438e-07 |
+ |    ... whereof user classification code          1 |         100        100         73 |                        | 
+ |                                                    |                                   |                        |
+ | sum                                                |         100        100         73 |   3.785e-07  1.438e-07 |
+ |                                                                                                                 |
+ *-------  End PYTHIA Event and Cross Section Statistics ----------------------------------------------------------*
+
+ *-------  PYTHIA Error and Warning Messages Statistics  ----------------------------------------------------------* 
+ |                                                                                                                 | 
+ |  times   message                                                                                                | 
+ |                                                                                                                 | 
+ |      1   Info from Pythia::init: be aware that successive calls to init() do not clear previous settings.       | 
+ |      2   Info from SLHAinterface::initSLHA: No MODSEL found, keeping internal SUSY switched off                 | 
+ |      2   Info from SLHAinterface::initSLHA: importing DECAY tables                                              | 
+ |      4   Warning in SLHAinterface::initSLHA: adding off shell DECAY mode                                        | 
+ |      2   Warning in SLHAinterface::initSLHA: ignoring DECAY tables                                              | 
+ |      2   Warning in SLHAinterface::initSLHA: ignoring MASS entries                                              | 
+ |      2   Warning in SLHAinterface::initSLHA: ignoring empty DECAY tables                                        | 
+ |                                                                                                                 | 
+ *-------  End PYTHIA Error and Warning Messages Statistics  ------------------------------------------------------* 
+
+
+  2022-06-24 04:56       event weights, current subrun
+
+        1.00*10^ 2                                          X                                                           
+        0.96*10^ 2                                          X                                                           
+        0.92*10^ 2                                          X                                                           
+        0.88*10^ 2                                          X                                                           
+        0.84*10^ 2                                          X                                                           
+        0.80*10^ 2                                          X                                                           
+        0.76*10^ 2                                          X                                                           
+        0.72*10^ 2                                          X                                                           
+        0.68*10^ 2                                          X                                                           
+        0.64*10^ 2                                          X                                                           
+        0.60*10^ 2                                          X                                                           
+        0.56*10^ 2                                          X                                                           
+        0.52*10^ 2                                          X                                                           
+        0.48*10^ 2                                          X                                                           
+        0.44*10^ 2                                          X                                                           
+        0.40*10^ 2                                          X                                                           
+        0.36*10^ 2                                          X                                                           
+        0.32*10^ 2                                          X                                                           
+        0.28*10^ 2                                          X                                                           
+        0.24*10^ 2                                          X                                                           
+        0.20*10^ 2                                          X                                                           
+        0.16*10^ 2                                          X                                                           
+        0.12*10^ 2                                          X                                                           
+        0.08*10^ 2                                          X                                                           
+        0.04*10^ 2                                          X                                                           
+
+          Contents                                                                                                      
+            *10^ 2  0000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000
+            *10^ 1  0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+            *10^ 0  0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+            *10^-1  0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+          Low edge                                                                                                      
+            *10^ 0  0000000000000000000000000000000000000000111111111111111111111111111111111111111122222222222222222222
+            *10^-1  0000111122223333444455556666777788889999000011112222333344445555666677778888999900001111222233334444
+            *10^-2  0358035803580358035803580358035803580358035803580358035803580358035803580358035803580358035803580358
+
+   Entries  =         100    Mean =  1.0125e+00    Underflow =  0.0000e+00    Low edge  =  0.0000e+00
+   All chan =  1.0000e+02    Rms  =  0.0000e+00    Overflow  =  0.0000e+00    High edge =  2.5000e+00
+
+
+  2022-06-24 04:56       pT of W, current subrun
+
+        2.08*10^ 1                   2                                                                                  
+        2.00*10^ 1                   X                                                                                  
+        1.92*10^ 1                   X                                                                                  
+        1.84*10^ 1                   X                                                                                  
+        1.76*10^ 1                   X     2                                                                            
+        1.68*10^ 1                   X     X                                                                            
+        1.60*10^ 1                   X     X                                                                            
+        1.52*10^ 1                   X     X  5                                                                         
+        1.44*10^ 1                   X     X  X                                                                         
+        1.36*10^ 1                   X     X  X                                                                         
+        1.28*10^ 1                   X  7  X  X                                                                         
+        1.20*10^ 1                   X  X  X  X          2                                                              
+        1.12*10^ 1                   X  X  X  X          X                                                              
+        1.04*10^ 1                   X  X8 X  X          X                                                              
+        0.96*10^ 1                   X 8XX X8 X          X                                                              
+        0.88*10^ 1                   X XXX XX X          X                                                              
+        0.80*10^ 1                   X XXX XX X          X        3                                                     
+        0.72*10^ 1               1   X1XXX XX1X          X        X                                                     
+        0.64*10^ 1               X 8 XXXXX XXXX89      2 X        X                                                     
+        0.56*10^ 1               X X XXXXX XXXXXX   65 X X    57  X                                                     
+        0.48*10^ 1               X X XXXXX XXXXXX   XX X X    XX  X                                                     
+        0.40*10^ 1            6  X X6XXXXX1XXXXXX   XX X X    XX  X                                                     
+        0.32*10^ 1            X6 X6XXXXXXXXXXXXXX497XX X X5   XX21X                                                     
+        0.24*10^ 1            XX XXXXXXXXXXXXXXXXXXXXXXX XX   XXXXX           X       6   X                             
+        0.16*10^ 1            XX XXXXXXXXXXXXXXXXXXXXXXX XX   XXXXX           X       X   X                             
+        0.08*10^ 1            XX XXXXXXXXXXXXXXXXXXXXXXX XX   XXXXX           X       X   X                             
+
+          Contents                                                                                                      
+            *10^ 1  0000000000000000020011010010000000000100000000000000000000000000000000000000000000000000000000000000
+            *10^ 0  0000000000320626306920369646623255250120005522700000000000200000002000200000000000000000000000000000
+            *10^-1  0000000000680492714452294472271922370380001354400000000000400000001000300000000000000000000000000000
+            *10^-2  0000000000750505077137726481852781730510007774500000000000100000002000700000000000000000000000000000
+
+          Low edge                                                                                                      
+            *10^ 2  0000000000000000000000000000000000000000000000000011111111111111111111111111111111111111111111111111
+            *10^ 1  0000011111222223333344444555556666677777888889999900000111112222233333444445555566666777778888899999
+            *10^ 0  0246802468024680246802468024680246802468024680246802468024680246802468024680246802468024680246802468
+
+   Entries  =          73    Mean =  5.4751e+01    Underflow =  0.0000e+00    Low edge  =  0.0000e+00
+   All chan =  2.1952e+02    Rms  =  2.2803e+01    Overflow  =  0.0000e+00    High edge =  2.0000e+02
+
+ *------------------ MEPS Merging Initialization  ------------------*
+ |                                                                  |
+ | CKKW-L merge                                                     |
+ |                           pp>e+ve  with up to  2 additional jets |
+ | Merging scale is defined in kT, with value ktMS = 3.0000e+01 GeV
+ |                                                                  |
+ *-------------- END MEPS Merging Initialization  ------------------*
+
+ *-----------------------  SusyLesHouches SUSY/BSM Interface  ------------------------*
+ | Last Change 12 Apr 2017 - P. Skands
+ | Parsing: w+_production_lhc_2.lhe
+ | (SLHA::readFile) line 134 - storing non-SLHA(2) block: mgyukawa
+ | (SLHA::readFile) line 139 - storing non-SLHA(2) block: mgckm
+ *------------------------------------------------------------------------------------*
+ PYTHIA Warning in SLHAinterface::initSLHA: ignoring MASS entries for id = {5,15,23,24} (m0 < SLHA:minMassSM)
+ PYTHIA Warning in SLHAinterface::initSLHA: adding off shell DECAY mode 25 -> 23 23
+ PYTHIA Warning in SLHAinterface::initSLHA: adding off shell DECAY mode 25 -> 24 -24
+ PYTHIA Info from SLHAinterface::initSLHA: importing DECAY tables for id = {25}
+ PYTHIA Warning in SLHAinterface::initSLHA: ignoring DECAY tables for id = {23,24} (m0 < SLHA:minMassSM)
+ PYTHIA Warning in SLHAinterface::initSLHA: ignoring empty DECAY tables for id = {6} (total width provided but no Branching Ratios)
+
+ *-------  PYTHIA Process Initialization  --------------------------*
+ |                                                                  |
+ | We collide p+ with p+ at a CM energy of 7.000e+03 GeV            |
+ |                                                                  |
+ |------------------------------------------------------------------|
+ |                                                    |             |
+ | Subprocess                                    Code |   Estimated |
+ |                                                    |    max (mb) |
+ |                                                    |             |
+ |------------------------------------------------------------------|
+ |                                                    |             |
+ | Les Houches User Process(es)                  9999 |   1.436e-07 |
+ |                                                                  |
+ *-------  End PYTHIA Process Initialization -----------------------*
+
+ *-------  PYTHIA Flag + Mode + Parm + Word + FVec + MVec + PVec + WVec Settings (changes only)  ------------------* 
+ |                                                                                                                 | 
+ | Name                                          |                      Now |      Default         Min         Max | 
+ |                                               |                          |                                      | 
+ | BeamRemnants:halfScaleForKT                   |                  1.00000 |      1.50000         0.0             | 
+ | BeamRemnants:primordialKThard                 |                  2.00000 |      1.80000         0.0             | 
+ | BeamRemnants:primordialKTsoft                 |                  0.50000 |      0.90000         0.0             | 
+ | Beams:frameType                               |                        4 |            1           1           5 | 
+ | Beams:LHEF                                    |  w+_production_lhc_2.lhe |         void                         | 
+ | ColourReconnection:range                      |                  1.50000 |      1.80000         0.0    10.00000 | 
+ | Diffraction:largeMassSuppress                 |                  2.00000 |      4.00000         0.0             | 
+ | HadronLevel:all                               |                      off |           on                         | 
+ | Init:showChangedParticleData                  |                      off |           on                         | 
+ | Main:numberOfEvents                           |                      100 |         1000           0             | 
+ | Main:subrun                                   |                        2 |         -999           0             | 
+ | Merging:doKTMerging                           |                       on |          off                         | 
+ | Merging:ktType                                |                        2 |            1           1           3 | 
+ | Merging:nJetMax                               |                        2 |            0           0             | 
+ | Merging:Process                               |                  pp>e+ve |         void                         | 
+ | Merging:TMS                                   |                 30.00000 |          0.0                         | 
+ | MultipartonInteractions:alphaSvalue           |                  0.13500 |      0.13000   0.0600000     0.25000 | 
+ | MultipartonInteractions:ecmPow                |                  0.19000 |      0.21500         0.0     0.50000 | 
+ | MultipartonInteractions:ecmRef                |                 1800.000 |     7000.000     1.00000             | 
+ | MultipartonInteractions:expPow                |                  2.00000 |      1.85000     0.40000    10.00000 | 
+ | MultipartonInteractions:pT0Ref                |                  2.08500 |      2.28000     0.50000    10.00000 | 
+ | Next:numberShowEvent                          |                        0 |            1           0             | 
+ | Next:numberShowInfo                           |                        0 |            1           0             | 
+ | PartonLevel:MPI                               |                      off |           on                         | 
+ | PDF:pSet                                      |                        8 |           13                         | 
+ | SigmaProcess:alphaSvalue                      |                  0.13500 |      0.13000   0.0600000     0.25000 | 
+ | SpaceShower:alphaSvalue                       |                  0.13700 |      0.13650   0.0600000     0.25000 | 
+ | SpaceShower:ecmRef                            |                 1800.000 |     7000.000     1.00000             | 
+ | SpaceShower:rapidityOrder                     |                      off |           on                         | 
+ | StringFlav:etaSup                             |                  0.63000 |      0.60000         0.0     1.00000 | 
+ | StringFlav:mesonBvector                       |                  3.00000 |      2.20000         0.0     3.00000 | 
+ | StringFlav:mesonCvector                       |                  1.06000 |      0.88000         0.0     3.00000 | 
+ | StringFlav:mesonSvector                       |                  0.72500 |      0.55000         0.0     3.00000 | 
+ | StringFlav:mesonUDvector                      |                  0.62000 |      0.50000         0.0     3.00000 | 
+ | StringFlav:popcornSpair                       |                  0.50000 |      0.90000         0.0     1.00000 | 
+ | StringFlav:probQQ1toQQ0                       |                0.0270000 |    0.0275000         0.0     1.00000 | 
+ | StringFlav:probQQtoQ                          |                0.0900000 |    0.0810000         0.0     1.00000 | 
+ | StringFlav:probSQtoQQ                         |                  1.00000 |      0.91500         0.0     1.00000 | 
+ | StringFlav:probStoUD                          |                  0.19000 |      0.21700         0.0     1.00000 | 
+ | StringPT:sigma                                |                  0.30400 |      0.33500         0.0     1.00000 | 
+ | StringZ:aExtraDiquark                         |                  0.50000 |      0.97000         0.0     2.00000 | 
+ | StringZ:aLund                                 |                  0.30000 |      0.68000         0.0     2.00000 | 
+ | StringZ:bLund                                 |                  0.80000 |      0.98000     0.20000     2.00000 | 
+ | StringZ:rFactB                                |                  0.67000 |      0.85500         0.0     2.00000 | 
+ | StringZ:rFactC                                |                  1.00000 |      1.32000         0.0     2.00000 | 
+ | TimeShower:alphaSvalue                        |                  0.13830 |      0.13650   0.0600000     0.25000 | 
+ | TimeShower:pTmin                              |                  0.40000 |      0.50000     0.10000     2.00000 | 
+ | TimeShower:pTminChgQ                          |                  0.40000 |      0.50000     0.10000     2.00000 | 
+ | Tune:ee                                       |                        3 |            7          -1           7 | 
+ | Tune:pp                                       |                        5 |           14          -1          34 | 
+ | UncertaintyBands:doVariations                 |                       on |          off                         | 
+ | UncertaintyBands:List                         |                          | alphaShi fsr:muRfac=0.5 isr:muRfac=0.5 | 
+ |                                               |                          |   alphaSlo fsr:muRfac=2.0 isr:muRfac=2.0 | 
+ |                                               |                          |   hardHi fsr:cNS=2.0 isr:cNS=2.0     | 
+ |                                               |                          |  hardLo fsr:cNS=-2.0 isr:cNS=-2.0    | 
+ |                                                                                                                 | 
+ *-------  End PYTHIA Flag + Mode + Parm + Word + FVec + MVec + PVec + WVec Settings  -----------------------------* 
+ PYTHIA Warning in History::weightCKKWL: No ordered history found. Using unordered history.  
+ PYTHIA Warning in Merging::mergeProcessCKKWL: No clusterings found. History incomplete.  
+ PYTHIA Warning in Merging::mergeProcessCKKWL: Les Houches Event fails merging scale cut. Reject event.  
+ PYTHIA Abort from Pythia::next: reached end of Les Houches Events File  
+
+ *-------  PYTHIA Event and Cross Section Statistics  -------------------------------------------------------------*
+ |                                                                                                                 |
+ | Subprocess                                    Code |            Number of events       |      sigma +- delta    |
+ |                                                    |       Tried   Selected   Accepted |     (estimated) (mb)   |
+ |                                                    |                                   |                        |
+ |-----------------------------------------------------------------------------------------------------------------|
+ |                                                    |                                   |                        |
+ | Les Houches User Process(es)                  9999 |         100        100         85 |   1.320e-07  2.176e-08 |
+ |    ... whereof user classification code          1 |         100        100         85 |                        | 
+ |                                                    |                                   |                        |
+ | sum                                                |         100        100         85 |   1.320e-07  2.176e-08 |
+ |                                                                                                                 |
+ *-------  End PYTHIA Event and Cross Section Statistics ----------------------------------------------------------*
+
+ *-------  PYTHIA Error and Warning Messages Statistics  ----------------------------------------------------------* 
+ |                                                                                                                 | 
+ |  times   message                                                                                                | 
+ |                                                                                                                 | 
+ |      1   Abort from Pythia::next: reached end of Les Houches Events File                                        | 
+ |      2   Info from Pythia::init: be aware that successive calls to init() do not clear previous settings.       | 
+ |      3   Info from SLHAinterface::initSLHA: No MODSEL found, keeping internal SUSY switched off                 | 
+ |      3   Info from SLHAinterface::initSLHA: importing DECAY tables                                              | 
+ |     15   Warning in History::weightCKKWL: No ordered history found. Using unordered history.                    | 
+ |      3   Warning in Merging::mergeProcessCKKWL: Les Houches Event fails merging scale cut. Reject event.        | 
+ |      2   Warning in Merging::mergeProcessCKKWL: No clusterings found. History incomplete.                       | 
+ |      6   Warning in SLHAinterface::initSLHA: adding off shell DECAY mode                                        | 
+ |      3   Warning in SLHAinterface::initSLHA: ignoring DECAY tables                                              | 
+ |      3   Warning in SLHAinterface::initSLHA: ignoring MASS entries                                              | 
+ |      3   Warning in SLHAinterface::initSLHA: ignoring empty DECAY tables                                        | 
+ |                                                                                                                 | 
+ *-------  End PYTHIA Error and Warning Messages Statistics  ------------------------------------------------------* 
+
+
+  2022-06-24 04:56       event weights, current subrun
+
+        1.00*10^ 2                                          3                                                           
+        0.96*10^ 2                                          X                                                           
+        0.92*10^ 2                                          X                                                           
+        0.88*10^ 2                                          X                                                           
+        0.84*10^ 2                                          X                                                           
+        0.80*10^ 2                                          X                                                           
+        0.76*10^ 2                                          X                                                           
+        0.72*10^ 2                                          X                                                           
+        0.68*10^ 2                                          X                                                           
+        0.64*10^ 2                                          X                                                           
+        0.60*10^ 2                                          X                                                           
+        0.56*10^ 2                                          X                                                           
+        0.52*10^ 2                                          X                                                           
+        0.48*10^ 2                                          X                                                           
+        0.44*10^ 2                                          X                                                           
+        0.40*10^ 2                                          X                                                           
+        0.36*10^ 2                                          X                                                           
+        0.32*10^ 2                                          X                                                           
+        0.28*10^ 2                                          X                                                           
+        0.24*10^ 2                                          X                                                           
+        0.20*10^ 2                                          X                                                           
+        0.16*10^ 2                                          X                                                           
+        0.12*10^ 2                                          X                                                           
+        0.08*10^ 2                                          X                                                           
+        0.04*10^ 2                                          X                                                           
+
+          Contents                                                                                                      
+            *10^ 1  0000000000000000000000000000000000000000900000000000000000000000000000000000000000000000000000000000
+            *10^ 0  0000000000000000000000000000000000000000700000000000000000000000000000000000000000000000000000000000
+            *10^-1  0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+            *10^-2  0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+          Low edge                                                                                                      
+            *10^ 0  0000000000000000000000000000000000000000111111111111111111111111111111111111111122222222222222222222
+            *10^-1  0000111122223333444455556666777788889999000011112222333344445555666677778888999900001111222233334444
+            *10^-2  0358035803580358035803580358035803580358035803580358035803580358035803580358035803580358035803580358
+
+   Entries  =          97    Mean =  1.0125e+00    Underflow =  0.0000e+00    Low edge  =  0.0000e+00
+   All chan =  9.7000e+01    Rms  =  0.0000e+00    Overflow  =  0.0000e+00    High edge =  2.5000e+00
+
+
+  2022-06-24 04:56       pT of W, current subrun
+
+        3.48*10^ 0      4 7                                                                                             
+        3.36*10^ 0      X X                                                                                             
+        3.24*10^ 0      X X            9                                                                                
+        3.12*10^ 0      X X            X  3                                                                             
+        3.00*10^ 0      X X            X  X                                                                             
+        2.88*10^ 0      X X            X  X                                                                             
+        2.76*10^ 0      X X            X  X                                                                             
+        2.64*10^ 0      X X            X  X                                                                             
+        2.52*10^ 0      X X            X  X                                                                             
+        2.40*10^ 0      X X            X  X   3                  6                                                      
+        2.28*10^ 0      X X        8 3 X6 X   X 3                X                                                      
+        2.16*10^ 0      X X        X X XX X   X X       2        X                                                      
+        2.04*10^ 0   2  X X        X X XX X   X X 6     X1       X                                                      
+        1.92*10^ 0   X  X X        X X XXXX   X X X     XX       X                                                      
+        1.80*10^ 0   X  X X        X X XXXX   X3X X     XX       X                                                      
+        1.68*10^ 0   X  X X        X X XXXX   XXX X     XX   9   X                                                      
+        1.56*10^ 0   X  X X   8    X X XXXX   XXX X     XX  1X   X                              1                       
+        1.44*10^ 0   X  X X   X 9  X X2XXXX   XXX X     XX  XX   X                              X                       
+        1.32*10^ 0   X  X X   X X  X XXXXXX 7 XXX X     XX  XX   X                              X                       
+        1.20*10^ 0   X  X X8  X X  X XXXXXX X1XXX X     XX  XX   X                              X                       
+        1.08*10^ 0   X 1X XX  X X  X XXXXXX XXXXX X     XX  XX9  X                              X                       
+        0.96*10^ 0  7X XX XX  X X  X XXXXXX XXXXX8X  2X XX 5XXX  X 9      2   4                 X     5                 
+        0.84*10^ 0  XX XX XX 5X X  X XXXXXX4XXXXXXX  XX XX XXXX  X X8   X X   X       6         X     X                 
+        0.72*10^ 0  XX XX XX XX X  X XXXXXXXXXXXXXX  XX XX XXXX  X XX   X X   X8    3 X         X     X  17             
+        0.60*10^ 0  XX XX XX XX X  X XXXXXXXXXXXXXX1 XX XX XXXX 9X XX  XX X   XX    X X         X     X  XX       1 9   
+        0.48*10^ 0  XX2XX XX XX X  X8XXXXXXXXXXXXXXX XX XX XXXX XX XX  XX X   XX    X X         X     X  XX       X X   
+        0.36*10^ 0  XXXXX XX XX X  XXXXXXXXXXXXXXXXX2XX XX XXXX XX XX  XX X   XX    X X         X     X  XX       X X   
+        0.24*10^ 0  XXXXX XX XX X  XXXXXXXXXXXXXXXXXXXX XX XXXX XX XX  XX X   XX    X X         X     X  XX       X X   
+        0.12*10^ 0  XXXXX XX XX X  XXXXXXXXXXXXXXXXXXXX XX XXXX XX XX  XX X   XX    X X         X     X  XX       X X   
+
+          Contents                                                                                                      
+            *10^ 0  0100303100101002021321301121201000002100111002000000000000000000000000000000100000000000000000000000
+            *10^-1  9939404107504002413229072037199428900908460053098006808000860000607000000000400000900660000000405000
+            *10^-2  2477104707402005594231468811939966606209576085041000406000890000309000000000500000000080000000808000
+            *10^-3  5192108107207004359865292926854060503707819090031001309000870000105000000000800000300880000000903000
+
+          Low edge                                                                                                      
+            *10^ 2  0000000000000000000000000000000000000000000000000011111111111111111111111111111111111111111111111111
+            *10^ 1  0000011111222223333344444555556666677777888889999900000111112222233333444445555566666777778888899999
+            *10^ 0  0246802468024680246802468024680246802468024680246802468024680246802468024680246802468024680246802468
+
+   Entries  =          85    Mean =  5.9588e+01    Underflow =  0.0000e+00    Low edge  =  0.0000e+00
+   All chan =  7.1373e+01    Rms  =  4.2545e+01    Overflow  =  0.0000e+00    High edge =  2.0000e+02
+
+
+  2022-06-24 04:56       pT of W, summed over all subruns
+
+        3.75*10^ 2   7                                                                                                  
+        3.60*10^ 2   X                                                                                                  
+        3.45*10^ 2   XX                                                                                                 
+        3.30*10^ 2   XX 6                                                                                               
+        3.15*10^ 2   XX X                                                                                               
+        3.00*10^ 2   XX X                                                                                               
+        2.85*10^ 2   XX X                                                                                               
+        2.70*10^ 2   XX X                                                                                               
+        2.55*10^ 2   XX X                                                                                               
+        2.40*10^ 2   XX X                                                                                               
+        2.25*10^ 2   XX X                                                                                               
+        2.10*10^ 2  2XX X1 2                                                                                            
+        1.95*10^ 2  XXX XX X                                                                                            
+        1.80*10^ 2  XXX XX X                                                                                            
+        1.65*10^ 2  XXX XX X                                                                                            
+        1.50*10^ 2  XXX9XX X                                                                                            
+        1.35*10^ 2  XXXXXX X2                                                                                           
+        1.20*10^ 2  XXXXXX XX                                                                                           
+        1.05*10^ 2  XXXXXX XX                                                                                           
+        0.90*10^ 2  XXXXXX2XX  1                                                                                        
+        0.75*10^ 2  XXXXXXXXXX X                                                                                        
+        0.60*10^ 2  XXXXXXXXXX6X      8                                                                                 
+        0.45*10^ 2  XXXXXXXXXXXX 1    X                                                                                 
+        0.30*10^ 2  XXXXXXXXXXXX X   5X    2  1                                                                         
+        0.15*10^ 2  XXXXXXXXXXXX1X263XX8X84X75X5623244241921114423511   1 1   2       2   2     1     1                 
+
+          Contents                                                                                                      
+            *10^ 2  1331310110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+            *10^ 1  9744297927570300025111011010000000000100000000000000000000000000000000000000000000000000000000000000
+            *10^ 0  7158367834461128427242670777835356352320116534700000000000300000002000200000100000000000000000000000
+            *10^-1  8106493116474195240682377519571551371389572428598006809000370000609000400000500000900670000000506000
+
+          Low edge                                                                                                      
+            *10^ 2  0000000000000000000000000000000000000000000000000011111111111111111111111111111111111111111111111111
+            *10^ 1  0000011111222223333344444555556666677777888889999900000111112222233333444445555566666777778888899999
+            *10^ 0  0246802468024680246802468024680246802468024680246802468024680246802468024680246802468024680246802468
+
+   Entries  =         249    Mean =  1.5018e+01    Underflow =  0.0000e+00    Low edge  =  0.0000e+00
+   All chan =  2.5307e+03    Rms  =  1.9049e+01    Overflow  =  0.0000e+00    High edge =  2.0000e+02
+
+
+ The inclusive cross section after merging is: 5.0613e-06 mb 
