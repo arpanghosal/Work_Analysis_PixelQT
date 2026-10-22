@@ -1,0 +1,3 @@
+[submodule "atlaseventduplicatechecker"]
+	path = atlaseventduplicatechecker
+	url = https://:@gitlab.cern.ch:8443/TopPropertiesTtGammaFullRun2/atlaseventduplicatechecker.git

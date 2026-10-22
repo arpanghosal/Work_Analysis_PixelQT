@@ -1,0 +1,1 @@
+/afs/cern.ch/work/k/kzoch/public/mc16_13TeV.410389.MadGraphPythia8EvtGen_A14NNPDF23_ttgamma_nonallhadronic.deriv.DAOD_TOPQ1.e6155_s3126_r9364_p3832/DAOD_TOPQ1.17906366._000032.pool.root.1

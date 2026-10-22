@@ -1,0 +1,22 @@
+# pack-refs with: peeled fully-peeled sorted 
+c7ece0ffd890153e542259d81f39a8564b99d4fa refs/remotes/origin/devel_arpan_1
+8bf8ce9fad62e406df897880b65af7ec6d7221c1 refs/remotes/origin/emu-paper
+261b73269f1b7a50bc9b65a4dc9524496e3685ec refs/remotes/origin/long-term-paper
+46fc474c68ef0d508ddfde4745cfdcc3a94422cd refs/remotes/origin/master
+9e681386837646f2f338106d24b636871c2ea3d5 refs/remotes/origin/ttgamgam_master
+7a4475924caef16f7bbe6fa48029942a4f26928a refs/tags/v1.0
+c86522f187fd0bb60b890889ec7d173afe07bbbc refs/tags/v1.1
+eea61edec048055fcc0d17443fa8bfc603d4f913 refs/tags/v10
+^343fc9616d84c28bf256b927754358b2bd566ccf
+d36910027db68b38a2060396f882a86e1aa15bfa refs/tags/v2.0
+edac07635de8adf8fec3cb7f1d85eb7dc65c4c6a refs/tags/v3.0
+e104e58515d8f65608667c8c977a2e7c265fc478 refs/tags/v3.1
+ce02ae9953465881aa340bee58ed993c29a4307c refs/tags/v3.1.1
+4faafd87fac82f21f970fc541ef2eea975273a4a refs/tags/v4.0
+39c23f50cc0a530f7a9e69af358fc3aaaf0d8f07 refs/tags/v4.0.1
+d76ce88ec6031a52d53ddefb81f81550ba3f286b refs/tags/v5.0
+4ff05a82f14df7b6b8c2eba726380cecdc572b41 refs/tags/v6.0
+fcb2b7fd654b870c3e5817d01eb043d4a2af3e47 refs/tags/v7.0
+381f5a59fee7ee242887ec8237be2e20d7473c38 refs/tags/v7.1.1
+b79c5c368a9474f55b78774256b03f15a8c42cfe refs/tags/v9
+^092f5d975ae2ab4c0da5c120832e835d5c4ac2e1
